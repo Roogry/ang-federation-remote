@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-location-selector-component',
+  selector: 'app-location-selector',
   imports: [],
-  templateUrl: './location-selector-component.component.html',
-  styleUrl: './location-selector-component.component.scss'
+  templateUrl: './location-selector.component.html',
+  styleUrl: './location-selector.component.scss'
 })
-export class LocationSelectorComponentComponent {
+export class LocationSelectorComponent {
 
 }

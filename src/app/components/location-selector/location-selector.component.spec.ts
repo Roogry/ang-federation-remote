@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LocationSelectorComponentComponent } from './location-selector.component';
+import { LocationSelectorComponent } from './location-selector.component';
 
-describe('LocationSelectorComponentComponent', () => {
-  let component: LocationSelectorComponentComponent;
-  let fixture: ComponentFixture<LocationSelectorComponentComponent>;
+describe('LocationSelectorComponent', () => {
+  let component: LocationSelectorComponent;
+  let fixture: ComponentFixture<LocationSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LocationSelectorComponentComponent]
+      imports: [LocationSelectorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LocationSelectorComponentComponent);
+    fixture = TestBed.createComponent(LocationSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

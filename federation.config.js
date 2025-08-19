@@ -5,7 +5,7 @@ module.exports = withNativeFederation({
   name: 'ang-federation-remote',
 
   exposes: {
-    './LocationSelector': './src/app/location-selector.component.ts',
+    // './LocationSelectorComponent': './src/app/components/location-selector/location-selector.component.ts',
   },
 
   shared: {
