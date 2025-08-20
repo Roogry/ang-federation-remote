@@ -1,0 +1,12 @@
+<div class='container'>
+    <p>{{fieldName()}}: </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-select >
+                @for( item of list(); track item){
+                    <mat-option [value]="item">{{item.name}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </p>
+</div>
