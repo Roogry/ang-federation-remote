@@ -2,7 +2,7 @@
     <p>{{fieldName()}}: </p>
     <p>
         <mat-form-field appearance="outline">
-            <mat-select >
+            <mat-select (valueChange)="updateValue($event)" >
                 @for( item of list(); track item){
                     <mat-option [value]="item">{{item.name}}</mat-option>
                 }

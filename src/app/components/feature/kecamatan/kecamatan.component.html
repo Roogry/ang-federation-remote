@@ -1,1 +1,3 @@
-<dropdown [list]="items" [fieldName]="'Kecamatan'"> </dropdown>
+@if(regencyId()) {
+    <dropdown [list]="items" [fieldName]="'Kecamatan'" (value)="select($event)"> </dropdown>
+}

@@ -7,7 +7,10 @@ module.exports = withNativeFederation({
     // './Component': './src/app/app.component.ts',
     // './EditLocation': './src/app/pages/edit-location-page/edit-location-page.component.ts',
     "./Button": "./src/app/components/shared/button/button.component.ts",
+    "./Provinsi": "./src/app/components/feature/provinsi/provinsi.component.ts",
+    "./Kota": "./src/app/components/feature/kota/kota.component.ts",
     "./Kecamatan": "./src/app/components/feature/kecamatan/kecamatan.component.ts",
+    "./Profile": "./src/app/components/page/profile/profile.component.ts"
   },
 
   shared: {
