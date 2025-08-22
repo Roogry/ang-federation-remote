@@ -1,31 +1,41 @@
-<div [formGroup]='profileFormGroup'>
-<p>
-    <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
+<div class='user-form' [formGroup]='profileFormGroup'>
+    <mat-label>Name</mat-label>
+    <mat-form-field class="user-info-field" appearance="outline">
         <input matInput formControlName='name'>
+        @if(profileFormGroup.controls['name'].dirty) {
+        <mat-icon matSuffix (click)="resetField('name')">cancel</mat-icon>
+        }
     </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
+    <mat-label>Email</mat-label>
+    <mat-form-field class="user-info-field" appearance="outline">
         <input matInput formControlName='email'>
+        @if(profileFormGroup.controls['email'].dirty) {
+        <mat-icon matSuffix (click)="resetField('email')">cancel</mat-icon>
+        }
     </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="outline">
-        <mat-label>Provinsi</mat-label>
+    <mat-label>Provinsi</mat-label>
+    <mat-form-field class="user-info-field" appearance="outline">
         <input matInput formControlName='provinceName'>
+        @if(profileFormGroup.controls['provinceName'].dirty) {
+            <mat-icon matSuffix (click)="resetField('provinceName')">cancel</mat-icon>
+        }
     </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="outline">
-        <mat-label>Kota/Kabupaten</mat-label>
+    <mat-label>Kota/Kabupaten</mat-label>
+    <mat-form-field class="user-info-field" appearance="outline">
         <input matInput formControlName='regencyName'>
+        @if(profileFormGroup.controls['regencyName'].dirty) {
+            <mat-icon matSuffix (click)="resetField('regencyName')">cancel</mat-icon>
+        }
     </mat-form-field>
-</p><p>
-    <mat-form-field appearance="outline">
-        <mat-label>Kecamatan</mat-label>
+    <mat-label>Kecamatan</mat-label>
+    <mat-form-field class="user-info-field" appearance="outline">
         <input matInput formControlName='districtName'>
+        @if(profileFormGroup.controls['districtName'].dirty) {
+        <mat-icon matSuffix (click)="resetField('districtName')">cancel</mat-icon>
+        }
     </mat-form-field>
-</p>
+    <div class='user-button-group'>
+        <button mat-flat-button class='btn-action btn-cancel' (click)='cancel()'>Batalkan</button>
+        <button mat-flat-button class='btn-action btn-save' (click)='save()'>Simpan</button>
+    </div>
 </div>
