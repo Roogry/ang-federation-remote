@@ -1,3 +1,8 @@
 @if (items.length > 0) {
-<dropdown [list]="items" [fieldName]="'Kota/Kabupaten'" (value)="select($event)" />
+<dropdown
+  [fieldName]="'Kota/Kabupaten'"
+  [list]="items"
+  [resetTrigger]="resetTrigger()"
+  (value)="select($event)"
+/>
 }

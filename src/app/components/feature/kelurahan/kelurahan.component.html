@@ -1,3 +1,9 @@
 @if(districtId()) {
-    <dropdown [list]="items" [fieldName]="'Kelurahan'" (value)="select($event)"> </dropdown>
+<dropdown
+  [fieldName]="'Kelurahan'"
+  [list]="items"
+  [resetTrigger]="resetTrigger()"
+  (value)="select($event)"
+>
+</dropdown>
 }

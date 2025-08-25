@@ -2,10 +2,10 @@
     <p>{{fieldName()}}: </p>
     <p>
         <mat-form-field appearance="outline">
-            <mat-select (valueChange)="updateValue($event)" >
-                @for( item of list(); track item){
-                    <mat-option [value]="item">{{item.name}}</mat-option>
-                }
+            <mat-select [(ngModel)]="selectedValue">
+            @for( item of list(); track item){
+                <mat-option [value]="item">{{item.name}}</mat-option>
+            }
             </mat-select>
         </mat-form-field>
     </p>

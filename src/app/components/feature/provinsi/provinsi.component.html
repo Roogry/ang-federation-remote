@@ -1,3 +1,8 @@
 @if (items.length > 0) {
-    <dropdown [list]="items" [fieldName]="'Provinsi'" (value)="select($event)" />
+<dropdown
+  [fieldName]="'Provinsi'"
+  [list]="items"
+  [resetTrigger]="resetTrigger()"
+  (value)="select($event)"
+/>
 }

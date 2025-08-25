@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, output } from '@angular/core';
+import { Component, inject, input, OnInit, output, signal, WritableSignal } from '@angular/core';
 import { LocationService, Province } from '../../../services/location.service';
 import { DropdownFieldComponent } from "../../shared/dropdown-field/dropdown-field.component";
 
@@ -11,8 +11,9 @@ import { DropdownFieldComponent } from "../../shared/dropdown-field/dropdown-fie
 export class ProvinsiComponent implements OnInit {
 
   private location = inject(LocationService);
-  items: Province[] = [];
 
+  resetTrigger = input<unknown>();
+  items: Province[] = [];
   selected = output<Province>();
 
   ngOnInit(): void {
@@ -24,8 +25,6 @@ export class ProvinsiComponent implements OnInit {
   }
 
   select(value: any) {
-    console.log(value);
     this.selected.emit(value as Province);
   }
-
 }

@@ -1,7 +1,6 @@
-import { Component, inject, input, output, } from '@angular/core';
+import { Component, effect, inject, input, output, } from '@angular/core';
 import { DropdownFieldComponent } from '../../shared/dropdown-field/dropdown-field.component';
 import { District, LocationService } from '../../../services/location.service';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'field-kecamatan',
@@ -14,19 +13,18 @@ export class KecamatanComponent {
   private location = inject(LocationService);
 
   regencyId = input.required<string>();
+  resetTrigger = input<unknown>();
   items: District[] = [];
   selected = output<District>();
 
   constructor() {
-  }
-
-  ngOnInit(): void {
-    this.location.fetchDistricts(this.regencyId()).subscribe(
-      (districts: District[]) => {
-        console.log(districts);
-        this.items = districts;
-      }
-    );
+    effect(() => {
+      this.location.fetchDistricts(this.regencyId()).subscribe({
+        next: (districts: District[]) => {
+          this.items = districts;
+        }
+      });
+    });
   }
 
   select(value: any) {

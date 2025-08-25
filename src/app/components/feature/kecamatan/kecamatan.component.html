@@ -1,3 +1,8 @@
 @if(regencyId()) {
-    <dropdown [list]="items" [fieldName]="'Kecamatan'" (value)="select($event)"> </dropdown>
+<dropdown
+  [fieldName]="'Kecamatan'"
+  [list]="items"
+  [resetTrigger]="resetTrigger()"
+  (value)="select($event)"
+/>
 }

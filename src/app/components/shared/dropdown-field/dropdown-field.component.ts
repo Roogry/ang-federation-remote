@@ -1,27 +1,42 @@
-import { Component, input, output } from '@angular/core';
+import { Component, effect, input, model, output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select'; 
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'dropdown',
-  imports: [MatInputModule, MatFormFieldModule, MatSelectModule, CommonModule],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    MatInputModule, 
+    MatFormFieldModule, 
+    MatSelectModule
+  ],
   templateUrl: './dropdown-field.component.html',
   styleUrl: './dropdown-field.component.scss'
 })
 export class DropdownFieldComponent {
 
   fieldName = input.required<string>();
-
-  value = output();
+  resetTrigger = input<unknown>();
+  value = output<Item | undefined>();
 
   list = input.required<Item[]>();
+  selectedValue = model<Item | undefined>(undefined);
 
-  updateValue(event: any) {
-    this.value.emit(event);
+  constructor() {
+    effect(() => {
+      this.value.emit(this.selectedValue());
+    });
+
+    effect(() => {
+      this.resetTrigger(); 
+      this.selectedValue.set(undefined);
+
+    }, { allowSignalWrites: true });
   }
-
 }
 
 export type Item = {

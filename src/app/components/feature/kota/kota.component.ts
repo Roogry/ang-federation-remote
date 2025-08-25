@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, output } from '@angular/core';
+import { Component, effect, inject, input, output } from '@angular/core';
 import { DropdownFieldComponent } from '../../shared/dropdown-field/dropdown-field.component';
 import { LocationService, Regency } from '../../../services/location.service';
 
@@ -8,25 +8,26 @@ import { LocationService, Regency } from '../../../services/location.service';
   templateUrl: './kota.component.html',
   styleUrl: './kota.component.scss'
 })
-export class KotaComponent implements OnInit {
+export class KotaComponent {
+
+  private location = inject(LocationService);
 
   provinceId = input.required<string>();
-  private location = inject(LocationService);
+  resetTrigger = input<unknown>();
   items: Regency[] = [];
-
   selected = output<Regency>();
 
-  ngOnInit(): void {
-    this.location.fetchRegencies(this.provinceId()).subscribe({
-      next: (regencies) => {
-        this.items = regencies;
-      }
+  constructor() {
+    effect(() => {
+      this.location.fetchRegencies(this.provinceId()).subscribe({
+        next: (regencies) => {
+          this.items = regencies;
+        }
+      });
     });
   }
 
   select(value: any) {
-    console.log(value);
     this.selected.emit(value as Regency);
   }
-
 }
